@@ -1,0 +1,67 @@
+[
+  {
+    "id": "preferences",
+    "children": [
+      {
+        "caption": "Package Settings",
+        "id": "package-settings",
+        "children": [
+          {
+            "caption": "SublimeLinter-contrib-xsim",
+            "children": [
+              {
+                "caption": "-",
+              },
+              {
+                "caption": "README",
+                "command": "open_file",
+                "args": {
+                  "file": "${packages}/SublimeLinter-contrib-xsim/README.md",
+                },
+              },
+              {
+                "caption": "CHANGELOG",
+                "command": "open_file",
+                "args": {
+                  "file": "${packages}/SublimeLinter-contrib-xsim/CHANGELOG.md",
+                },
+              },
+              {
+                "caption": "-",
+              },
+              {
+                "caption": "Open the demo file",
+                "children": [
+                  {
+                    "caption": "Verilog",
+                    "command": "open_file",
+                    "args": {
+                      "file": "${packages}/SublimeLinter-contrib-xsim/miscellaneous/demo.v",
+                    },
+                  },
+                  {
+                    "caption": "SystemVerilog",
+                    "command": "open_file",
+                    "args": {
+                      "file": "${packages}/SublimeLinter-contrib-xsim/miscellaneous/demo.sv",
+                    },
+                  },
+                  {
+                    "caption": "VHDL",
+                    "command": "open_file",
+                    "args": {
+                      "file": "${packages}/SublimeLinter-contrib-xsim/miscellaneous/demo.vhd",
+                    },
+                  },
+                ],
+              },
+              {
+                "caption": "-",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+]

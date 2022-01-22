@@ -1,0 +1,6 @@
+SublimeLinter-contrib-xsim
+-------------------------------
+This linter plugin for SublimeLinter provides an interface to xvlog and xvhdl provided by Vivado Simulator(XSim).
+
+For more information, please see:
+https://github.com/mzh330521/SublimeLinter-contrib-xsim
