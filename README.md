@@ -33,22 +33,20 @@ Arguments can be passed in a [linter settings](http://www.sublimelinter.com/en/s
    ```javascript
    // SublimeLinter Settings - User
    {
-    "debug": false,
-
-    "linters": {
-        "xvlog": {
-            "args": ["--relax"],
-            "working_dir": "${TEMP:${project_path:${folder:$file_path}}}",
-        },
-        "xvlog_sv": {
-            "args": ["--relax"],
-            "working_dir": "${TEMP:${project_path:${folder:$file_path}}}",
-        },
-        "xvhdl": {
-            "args": ["--relax"],
-            "working_dir": "${TEMP:${project_path:${folder:$file_path}}}",
-        }
-    },
+       "linters": {
+           "xvlog": {
+               "args": ["--relax"],
+               "working_dir": "${TEMP:${project_path:${folder:$file_path}}}",
+           },
+           "xvlog_sv": {
+               "args": ["--relax"],
+               "working_dir": "${TEMP:${project_path:${folder:$file_path}}}",
+           },
+           "xvhdl": {
+               "args": ["--relax"],
+               "working_dir": "${TEMP:${project_path:${folder:$file_path}}}",
+           }
+       },
    }
    ```
 
