@@ -6,31 +6,31 @@
 
 [English](./README.md) | [简体中文](./README.ch.md)
 
-This linter plugin for [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter) provides an interface to `xvlog`/`xvhdl` - Verilog/SystemVerilog/VHDL compilers provided with [Vivado Simulator](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0010-vivado-simulation-hub.html) (XSim). `xvlog` will be used with "Verilog" and "SystemVerilog" files , `xvhdl` with "VHDL" files.
+这是一个 [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter) 的子插件, 提供了 `xvlog`/`xvhdl` 的接口. `xvlog`/`xvhdl` 由 [Vivado Simulator](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0010-vivado-simulation-hub.html) (XSim) 提供. `xvlog` 被用于 "Verilog" 和 "SystemVerilog" 文件 , `xvhdl` 被用于 "VHDL" 文件.
 
-## Installation
+## 安装
 
-SublimeLinter must be installed in order to use this plugin. 
+在安装该插件前需要先安装 SublimeLinter. 
 
-Please use [Package Control](https://packagecontrol.io) to install the linter plugin.
+请使用 [Package Control](https://packagecontrol.io) 安装该插件.
 
-Before installing this plugin, you must ensure that `xvlog`/`xvhdl` are installed on your system. Once you install [Vivado Design Suite](https://www.xilinx.com/products/design-tools/vivado.html), they will be in the directory `PATH_TO_VIVADO/VIVADO_VERSION/bin`.
+使用该插件前, 需要保证 `xvlog`/`xvhdl` 已经安装在系统中. 当你安装了 [Vivado Design Suite](https://www.xilinx.com/products/design-tools/vivado.html) 后, 他们将出现在 Vivado 安装目录下 `PATH_TO_VIVADO/VIVADO_VERSION/bin`.
 
-In order for `xvlog`/`xvhdl` to be executed by SublimeLinter, you must ensure that its path is available to SublimeLinter. The docs cover [troubleshooting PATH configuration](http://sublimelinter.readthedocs.io/en/latest/troubleshooting.html#finding-a-linter-executable).
+为了 `xvlog`/`xvhdl` 能被 SublimeLinter 正确执行, 你必须确保 SublimeLinter 能够找到他们的路径. 你可以在环境变量中配置 PATH, 也可以在  SublimeLinter 中设置, 详见 [troubleshooting PATH configuration](http://sublimelinter.readthedocs.io/en/latest/troubleshooting.html#finding-a-linter-executable).
 
-Verilog/SystemVerilog/VHDL syntax highlight is not natively supplied by Sublime Text.
-You may install [Sublime Text Verilog](https://packagecontrol.io/packages/Verilog), [Sublime Text SystemVerilog](https://packagecontrol.io/packages/SystemVerilog) and [Sublime Text VHDL Mode](https://packagecontrol.io/packages/VHDL%20Mode) to do the job.
+Sublime 不支持 Verilog/SystemVerilog/VHDL 语法高亮.
+你需要安装 [Sublime Text Verilog](https://packagecontrol.io/packages/Verilog), [Sublime Text SystemVerilog](https://packagecontrol.io/packages/SystemVerilog) 和 [Sublime Text VHDL Mode](https://packagecontrol.io/packages/VHDL%20Mode) 插件来实现.
 
-## Settings
+## 设置
 
 - SublimeLinter settings: http://sublimelinter.readthedocs.org/en/latest/settings.html
 - Linter settings: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
 
-### Passing arguments to `xvlog`/`xvhdl`
+### `xvlog`/`xvhdl` 参数设置
 
-Arguments can be passed in a [linter settings](http://www.sublimelinter.com/en/stable/linter_settings.html#args) file or set in a [project settings](http://www.sublimelinter.com/en/stable/settings.html#project-settings) file:
+参数可以在 [linter settings](http://www.sublimelinter.com/en/stable/linter_settings.html#args) 文件或 [project settings](http://www.sublimelinter.com/en/stable/settings.html#project-settings) 文件中设置:
 
-- Using linter settings file:
+- 使用 linter settings:
 
    ```javascript
    // SublimeLinter Settings - User
@@ -52,7 +52,7 @@ Arguments can be passed in a [linter settings](http://www.sublimelinter.com/en/s
    }
    ```
 
-- Using Project specific settings:
+- 使用 Project settings (会覆盖 linter setttings 的同名参数):
 
     ```javascript
     // .sublime-project
@@ -82,14 +82,15 @@ Arguments can be passed in a [linter settings](http://www.sublimelinter.com/en/s
     }
     ```
     
-    It is recommended to use project specific settings when using `xvlog` with `-i [include] <directory_name>` command option.
+    在使用 `xvlog` 的 `-i [include] <directory_name>` 选项时, 建议使用 Project settings.
 
-- Arguments description
+- 参数说明
 
-    - `--relax`: Relax strict HDL language checking rules, which is default settting of Vivado.
-    - `-i`:  Specify directories to be searched for files included using Verilog `` `include``. Use -i|--include for each specified search directory
-    - For more information please check [UG900](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0010-vivado-simulation-hub.html), or using `xvlog/xvhdl --help`.
-## Demo
+    - `--relax`: 放松语法检查规则, Vivado 中默认开启该选项
+    - `-i`: 指定 `` `include`` 语句的检索目录, 对多个目录需分别设置
+    - 更多选项请查看 [UG900](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0010-vivado-simulation-hub.html), 或在命令行中使用 `xvlog/xvhdl --help`.
+
+## 示例
 
 `xvlog` for Verilog file:
 
@@ -103,7 +104,7 @@ Arguments can be passed in a [linter settings](http://www.sublimelinter.com/en/s
 
 ![xvhdl](https://user-images.githubusercontent.com/34703459/150648545-7b157dff-81e1-4397-a5fd-b1c1d43212c2.png)
 
-## Acknowledgment
+## 致谢
 
 - [SublimeLinter-contrib-modelsim](https://github.com/jevogel/SublimeLinter-contrib-modelsim)
 
