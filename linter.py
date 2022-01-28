@@ -14,7 +14,7 @@ class xvlog(Linter):
 
     regex = (
         r'((?P<error>ERROR)|(?P<warning>WARNING)): '
-        r'(?P<message>([^"\'\n]*(?P<quote>["\'])(?P<near>[^"\']+)(?P=quote))?.*) '
+        r'((.*module.*ignored due to previous errors.*)|(?P<message>([^"\'\n]*(?P<quote>["\'])(?P<near>[^"\']+)(?P=quote))?.*)) '
         r'\[(?P<file>.*):'
         r'(?P<line>\d+)\]'
     )
@@ -33,7 +33,7 @@ class xvlog_sv(Linter):
 
     regex = (
         r'((?P<error>ERROR)|(?P<warning>WARNING)): '
-        r'(?P<message>([^"\'\n]*(?P<quote>["\'])(?P<near>[^"\']+)(?P=quote))?.*) '
+        r'((.*module.*ignored due to previous errors.*)|(?P<message>([^"\'\n]*(?P<quote>["\'])(?P<near>[^"\']+)(?P=quote))?.*)) '
         r'\[(?P<file>.*):'
         r'(?P<line>\d+)\]'
     )
