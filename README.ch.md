@@ -26,9 +26,9 @@ Sublime 不支持 Verilog/SystemVerilog/VHDL 语法高亮.
 - SublimeLinter settings: http://sublimelinter.readthedocs.org/en/latest/settings.html
 - Linter settings: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
 
-### `xvlog`/`xvhdl` 参数设置
+### `xvlog`/`xvlog_sv`/`xvhdl` 参数设置
 
-参数可以在 [linter settings](http://www.sublimelinter.com/en/stable/linter_settings.html#args) 文件或 [project settings](http://www.sublimelinter.com/en/stable/settings.html#project-settings) 文件中设置:
+参数可以在 [linter settings](http://www.sublimelinter.com/en/stable/linter_settings.html#args) 文件或 [project settings](http://www.sublimelinter.com/en/stable/settings.html#project-settings) 文件中进行设置:
 
 - 使用 linter settings:
 
@@ -84,11 +84,18 @@ Sublime 不支持 Verilog/SystemVerilog/VHDL 语法高亮.
     
     在使用 `xvlog` 的 `-i [include] <directory_name>` 选项时, 建议使用 Project settings.
 
-- 参数说明
+- 备注
 
-    - `--relax`: 放松语法检查规则, Vivado 中默认开启该选项
-    - `-i`: 指定 `` `include`` 语句的检索目录, 对多个目录需分别设置
-    - 更多选项请查看 [UG900](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0010-vivado-simulation-hub.html), 或在命令行中使用 `xvlog/xvhdl --help`.
+    - `xvlog_sv` 等价于带 `--sv` 选项的 `xvlog`, 专门为 SystemVerilog 打造.
+
+    - `args` 为传递给 `xvlog/xvhdl` 的参数
+        - `--relax`: 放松语法检查规则, Vivado 中默认开启该选项
+        - `-i`: 指定 `` `include`` 语句的检索目录, 对多个目录需分别设置
+        - 更多选项请查看 [UG900](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0010-vivado-simulation-hub.html), 或在命令行中使用 `xvlog/xvhdl --help`.
+
+    - `work_dir` 为 `xvlog/xvhdl` 的运行目录
+        - 由于运行目录下会生成 `.dir` `.log` `.pb` 等目录或文件, 故上述参考设置中将其优先设为 `$TEMP`, 即操作系统临时文件夹, 当 `TEMP` 不存在时 (对于 Windows, 这是系统自带的环境变量), 才会依次选择后续目录.
+
 
 ## 示例
 
@@ -96,7 +103,7 @@ Sublime 不支持 Verilog/SystemVerilog/VHDL 语法高亮.
 
 ![xvlog](https://user-images.githubusercontent.com/34703459/150652581-72f74c25-d3cc-4b88-b523-981cf0b403b3.png)
 
-`xvlog` for SystemVerilog file
+`xvlog_sv` for SystemVerilog file
 
 ![xvlog_sv](https://user-images.githubusercontent.com/34703459/150648542-219eafe0-e747-48a7-a6e6-10f35e8836c3.png)
 

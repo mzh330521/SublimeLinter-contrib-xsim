@@ -26,7 +26,7 @@ You may install [Sublime Text Verilog](https://packagecontrol.io/packages/Verilo
 - SublimeLinter settings: http://sublimelinter.readthedocs.org/en/latest/settings.html
 - Linter settings: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
 
-### Passing arguments to `xvlog`/`xvhdl`
+### Passing arguments to `xvlog`/`xvlog_sv`/`xvhdl`
 
 Arguments can be passed in a [linter settings](http://www.sublimelinter.com/en/stable/linter_settings.html#args) file or set in a [project settings](http://www.sublimelinter.com/en/stable/settings.html#project-settings) file:
 
@@ -84,18 +84,24 @@ Arguments can be passed in a [linter settings](http://www.sublimelinter.com/en/s
     
     It is recommended to use project specific settings when using `xvlog` with `-i [include] <directory_name>` command option.
 
-- Arguments description
+- Remarks
+    - `xvlog_sv` is equal to `xvlog` with `--sv` command option on, which is specifically made for SystemVerilog files.
 
-    - `--relax`: Relax strict HDL language checking rules, which is default settting of Vivado.
-    - `-i`:  Specify directories to be searched for files included using Verilog `` `include``. Use -i|--include for each specified search directory
-    - For more information please check [UG900](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0010-vivado-simulation-hub.html), or using `xvlog/xvhdl --help`.
+    - `args` is command option passed to  `xvlog/xvhdl`
+        - `--relax`: Relax strict HDL language checking rules, which is default settting of Vivado.
+        - `-i`:  Specify directories to be searched for files included using Verilog `` `include``. Use `-i`|`--include` for each specified search directory
+        - For more information please check [UG900](https://www.xilinx.com/support/documentation-navigation/design-hubs/dh0010-vivado-simulation-hub.html), or using `xvlog/xvhdl --help`.
+
+    - `work_dir` is working directory `xvlog/xvhdl`
+        - Since `.dir` `.log` `.pb` folders or files will be generated in working directory, so I set `$TEMP` (i.e. temporary directory in Operating System) as working directory, when `TEMP` is not exist, the following directory will be selected.
+
 ## Demo
 
 `xvlog` for Verilog file:
 
 ![xvlog](https://user-images.githubusercontent.com/34703459/150652581-72f74c25-d3cc-4b88-b523-981cf0b403b3.png)
 
-`xvlog` for SystemVerilog file
+`xvlog_sv` for SystemVerilog file
 
 ![xvlog_sv](https://user-images.githubusercontent.com/34703459/150648542-219eafe0-e747-48a7-a6e6-10f35e8836c3.png)
 
