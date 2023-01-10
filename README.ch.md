@@ -82,7 +82,7 @@ Sublime 不支持 Verilog/SystemVerilog/VHDL 语法高亮.
     }
     ```
     
-    在使用 `xvlog` 的 `-i [include] <directory_name>` 选项时, 建议使用 Project settings.
+    在使用 `xvlog` 的 `-i [include] <directory_name>` 选项等与工程相关的选项时, 建议各个工程各自使用 Project settings; 其他选项建议使用全局的 linter settings.
 
 - 备注
 
